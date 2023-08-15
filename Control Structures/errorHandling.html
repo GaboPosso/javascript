@@ -1,0 +1,39 @@
+<!-- try {
+  console.log("En el Try de agrega el código a evaluar");
+} catch (error) {
+  console.log("Cath, captura cualquier error surgido o lanzado en el try");
+} finally {
+  console.log("El bloque finally se ejecutará siempre al final de un bloque try-catch")
+}
+
+function myFunction() -->
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>JavaScript Statements</h1>
+    <h2>The try...catch..finally Statements</h2>
+    <p>Please input a number between 5 and 10;</p>
+
+    <input id="demo" type="text" />
+
+    <button type="button" onclick="myFunction()">Test Input</button>
+    <p id="message"></p>
+    <script>
+      function myFunction() {
+        const message = document.getElementById("message");
+        message.innerHTML = "";
+        let x = document.getElementById("demo").value;
+        try {
+          if (x == "") throw "is Empty";
+          if (isNaN(x)) throw "Not a number";
+          if (x > 10) throw "too high";
+          if (x < 5) throw "too low";
+        } catch (err) {
+          message.innerHTML = "Input " + err;
+        } finally {
+          document.getElementById("demo").value = "";
+        }
+      }
+    </script>
+  </body>
+</html>
