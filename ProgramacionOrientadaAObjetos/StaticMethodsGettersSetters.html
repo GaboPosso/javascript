@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      class Animal {
+        constructor(nombre, genero) {
+          (this.nombre = nombre), (this.genero = genero);
+        }
+        //Métodos
+        sonar() {
+          console.log("Hago sonidos porque estoy vivo!");
+        }
+        saludar() {
+          console.log(`Hola mi nombre es ${this.nombre}`); 
+        }
+      }
+
+      class Perro extends Animal {
+        constructor(nombre, genero, tamanio) {
+          super(nombre, genero);
+          this.tamanio = tamanio;
+          this.raza = null;
+        }
+
+        sonar() {
+          console.log("Soy un perro y mi sonido es un ladrido");
+        }
+
+        ladrar() {
+          console.log("Guauu Guauu");
+        }
+        static queEres() {
+          console.log(
+            "Soy un mamífero deque pertenecemos ala familia de los caninos"
+          );
+        }
+
+        //Lo setters y getters son métofdos especiales que nos permiten establecer y obtener los valores de atributos de nuestra clase
+        get getRaza() {
+          return this.raza;          
+        }
+
+        set setRaza(raza) {
+          this.raza = raza;
+        }
+      }
+
+      const mimi = new Animal("Mimi", "Hembra"),
+        scooby = new Perro("Scooby", "Macho", "Gigante");
+
+      console.log(mimi);
+      console.log(scooby);
+      scooby.saludar();
+      scooby.sonar();
+      scooby.ladrar();
+
+      Perro.queEres();
+      console.log(scooby.getRaza);
+      scooby.setRaza = "Gran Danés";
+      console.log(scooby.getRaza);
+    </script>
+  </body>
+</html>
