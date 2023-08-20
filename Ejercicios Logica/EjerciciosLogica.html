@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="Ejercicio1.js"></script>
+  </head>
+  <body>
+    <script>
+      function contadorDeCaracteres(input) {
+        if (typeof input === "number") {
+          return input.toString().length;
+        } else if (typeof input === "boolean") {
+          return input.toString().length;
+        } else {
+          return input.length;
+        }
+      }
+
+      let bool = contadorDeCaracteres(false);
+      let num = contadorDeCaracteres(152055);
+      let str = contadorDeCaracteres("Hola");
+
+      console.log(bool, num, str);
+
+      let cutString = (str, position) => {
+        if (position < 0 || position > str.length) {
+          return "invalid position";
+        }
+        return str.substring(0, position + 1);
+      };
+
+      console.log(cutString("Hello World", 4));
+
+      function dividirString(str, separator) {
+        let arr = str.split(separator);
+
+        return arr;
+      }
+
+      console.log(dividirString("Hi, How are you", " "));
+
+      function repeatText(str, times) {
+        var newText = "";
+        for (let i = 0; i < times; i++) {
+          newText += str + " ";
+        }
+        return newText;
+      }
+
+      console.log(repeatText("Hello World", 3));p
+    </script>
+  </body>
+</html>
