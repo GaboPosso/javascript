@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <script>
+      //5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+
+      // const invertString  = ( str ) => {
+      //   // let arr = Array.from(str);
+      //   let arr = [...str];
+      //   let reversedArray = arr.reverse();
+      //   // let reversedString = reversedArray.toString();
+      //   return console.log(reversedArray.join(''));
+
+      // }
+
+      const invertString = (str) =>
+        !str || typeof str != "string"
+          ? console.warn(
+              "Please make sure the input is a String or is not empty"
+            )
+          : console.info(str.split("").reverse().join(""));
+
+      invertString("hello World");
+    </script>
+  </body>
+</html>

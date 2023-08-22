@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="Ejercicio1.js"></script>
+  </head>
+  <body>
+    <script>
+      // function contadorDeCaracteres(input) {
+      //   if (typeof input === "number") {
+      //     return input.toString().length;
+      //   } else if (typeof input === "boolean") {
+      //     return input.toString().length;
+      //   } else if (!input){
+      //     console.warn("You didn't enter any value")
+      //   } else {
+      //     return input.length;
+      //   }
+      // }
+
+      const contadorDeCaracteres = (input = "") =>
+        !input
+          ? console.warn("You didn't enter any value.")
+          : console.info(`The string ${input} has ${input.length} characters`);
+
+      // let bool = contadorDeCaracteres(false);
+      // let num = contadorDeCaracteres(152055);
+      let str = contadorDeCaracteres("Hola");
+
+      console.log(str);
+
+      // let cutString = (str, position) => {
+      //   if (position < 0 || position > str.length) {
+      //     return "invalid position";
+      //   }
+      //   return str.substring(0, position + 1);
+      // };
+
+      const cutString = (str = "", pos = undefined) =>
+        !str
+          ? console.warn("You didn't enter any value.")
+          : console.log(str.substring(0, pos + 1));
+
+      console.log(cutString("Hello World", 4));
+
+      // function dividirString(str, separator) {
+      //   let arr = str.split(separator);
+
+      //   return arr;
+      // }
+
+      const dividirString = (str = '', sep = undefined) =>
+        !str ? console.warn("You didn't enter any value.")
+        : console.log(str.split(sep));
+
+      console.log(dividirString("Hi, How are you", " "));
+
+      // function repeatText(str, times) {
+      //   var newText = "";
+      //   for (let i = 0; i < times; i++) {
+      //     newText += str + " ";
+      //   }
+      //   return newText;
+      // }
+
+      const repeatText = (str = "", times = undefined) => {
+        var newText = "";
+        if(!str) console.warn("You didn't enter any value.");
+        if(times === undefined) console.error("Please enter a valid number");
+        if(Math.sign(times) === -1) console.error("The number should be greater than 0");
+        else {
+        for (let i = 0; i < times; i++) {
+          newText += str + " ";
+        }}
+        return console.log(newText);
+      }
+      repeatText("Hello World", 3);
+      repeatText("",2);
+      repeatText("Hello World", );
+      repeatText("Hello World", -5);
+
+      
+    </script>
+  </body>
+</html>
