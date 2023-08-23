@@ -3,7 +3,12 @@
   <head> </head>
   <body>
     <script>
-      //5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+      /*
+      5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+      6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+      7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+      8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+      */
 
       // const invertString  = ( str ) => {
       //   // let arr = Array.from(str);
@@ -22,6 +27,52 @@
           : console.info(str.split("").reverse().join(""));
 
       invertString("hello World");
+
+      const countWords = (str, word) => {
+        const lowerText = str.toLowerCase(),
+          lowerWord = word.toLowerCase();
+
+        const arrWords = lowerText.split(/\s+/);
+
+        let count = 0;
+
+        for (const currentWord of arrWords) {
+          if (currentWord === lowerWord) {
+            count++;
+          }
+        }
+
+        return count;
+      };
+
+      const longString =
+        "This is a sample string. The string contains the word sample multiple times. Sample Word.";
+      const targetWord = "sample";
+      const occurrences = countWords(longString, targetWord);
+
+      console.log(`The word ${targetWord} appears ${occurrences} times`);
+
+      const itsPalindrome = (word) => {
+        const wordTolower = word.toLowerCase();
+        const wordToArray = wordTolower.split("");
+        const reversedWord = wordToArray.reverse().join("");
+        if (!word) return "Plese write a string";
+        if ((word = reversedWord)) return true;
+        return false;
+      };
+
+      console.log(itsPalindrome("salas"));
+
+      const deletePattern = (str, pattern) => {
+        if (!str || typeof str != "string") return "Please write a string";
+        const wordToArray = str.split("");
+        const patternToArray = pattern.split("");
+
+        const newArray = wordToArray.filter((x) => !patternToArray.includes(x));
+        return console.log(newArray.join(""));
+      };
+
+      deletePattern("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz");
     </script>
   </body>
 </html>
