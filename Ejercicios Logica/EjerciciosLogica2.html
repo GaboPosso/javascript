@@ -32,7 +32,7 @@
         const lowerText = str.toLowerCase(),
           lowerWord = word.toLowerCase();
 
-        const arrWords = lowerText.split(/\s+/); 
+        const arrWords = lowerText.split(/\s+/);
 
         let count = 0;
 
@@ -52,17 +52,32 @@
 
       console.log(`The word ${targetWord} appears ${occurrences} times`);
 
-      const itsPalindrome = (word) => {
-        const wordTolower = word.toLowerCase();
-        const wordToArray = wordTolower.split("");
-        const reversedWord = wordToArray.reverse().join("");
-        if (!word) return "Plese write a string";
-        if ((word = reversedWord)) return true;
-        return false;
-      };
+      // const itsPalindrome = (word) => {
+      //   const wordTolower = word.toLowerCase();
+      //   const wordToArray = wordTolower.split("");
+      //   const reversedWord = wordToArray.reverse().join("");
+      //   if (!word) return "Plese write a string";
+      //   if ((word = reversedWord)) return true;
+      //   return false;
+      // };
 
-      console.log(itsPalindrome("salas"));
+      // console.log(itsPalindrome("salas"));
+      const palindrome = (word = "") => {
+        if (!word) return console.warn("You didn't enter any text.");
+
+        word = word.toLowerCase();
+        let reversedWord = word.split("").reverse().join("");
+
+        return word === reversedWord
+          ? console.info("It's a Palindrome")
+          : console.warn(
+              `It is not a palindrome, the entered text is ${word} and the reversed text is ${reversedWord}.`
+            );
+      };
       
+      palindrome();
+      palindrome("Hello World");
+      palindrome("SaLas");
       // const deletePattern = (str, pattern) => {
       //   if (!str || typeof str != "string") return "Please write a string";
       //   const wordToArray = str.split("");
@@ -76,10 +91,12 @@
 
       // const deleteCharacters = (text = "", pattern = "") => (!text) ? console.warn("You didn't enter a text."):(!pattern) ? console.warn("You didn't type a text pattern"): console.info(text.replace(new RegExp(pattern, "ig"), ""))
 
-      const deletePattern = (text = "", pattern = "") =>  
-      (!text) ? console.warn("You didn't enter any text.") 
-      : (!pattern) ? console.warn("You didn't enter a pattern of characterts.")
-      : console.info(text.replace(new RegExp(pattern, "ig"), ""));
+      const deletePattern = (text = "", pattern = "") =>
+        !text
+          ? console.warn("You didn't enter any text.")
+          : !pattern
+          ? console.warn("You didn't enter a pattern of characterts.")
+          : console.info(text.replace(new RegExp(pattern, "ig"), ""));
 
       deletePattern();
       deletePattern("");
