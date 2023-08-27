@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="Ejercicio1.js"></script>
+  </head>
+  <body>
+    <script>
+      
+      // 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
+
+      const randomNumber = (max, min) => console.log (Math.random() * (max - min) + min);
+
+      randomNumber(600, 501);
+      // 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+
+      // const itsCapicua = (num) =>  num.toString().split("").join("").reverse() === num.toString.split("").join("") ? console.log(true) : console.log(false);
+      const itsCapicua = (num = undefined) => {
+        let digits = num.toString().split("");        
+        let reversedDigits = num.toString().split("").reverse();
+        
+        if(JSON.stringify(digits) === JSON.stringify(reversedDigits)) return console.log(true);
+        return console.log(false);
+      }
+      itsCapicua(2002);
+      itsCapicua(2145);
+      
+      
+      // 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+      const factorial = (num) => {
+        var result = num;
+        if (num === 0 || num === 1) return console.log(1);
+
+        while (num > 1) {
+          num--;
+          result *= num;
+        }
+        return console.log(result);
+        }
+
+        factorial(5);
+        factorial(1);
+    </script>
+  </body>
+</html>
