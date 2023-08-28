@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      // 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+      const isPrime = (num) => {
+        if(typeof num != 'number') return console.error("You typed a character that is not a number")
+        if(Math.sign(num) === -1) return console.error("The number should be positive.")
+        if(num === 1) console.log("1 is neither prime nor composite number")
+
+        for(let i = 2; i <num; i++){
+          if (num % i === 0) return console.log(false);
+
+          return console.log(true);
+        }
+      }
+
+      isPrime(11);
+      isPrime(1);
+      isPrime(4);
+
+      // 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+      const parity = (num = undefined) => {
+        if(typeof num != 'number') return console.error("You typed a character that is not a number");
+        if(num % 2 === 0) return console.log(`The number ${num} is a even number`);
+        console.log(`The number ${num} is an odd number`);
+      }
+
+      parity(2);
+      parity(5);
+      parity(1);
+
+      // 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+      const toFarenheit = (centigrades) => typeof centigrades != 'number' ?  console.error("You typed a character that is not a number") : console.log((centigrades * 9/5) + 32 + "°F");
+      toFarenheit(0);
+      toFarenheit('0');
+
+    </script>
+  </body>
+</html>
