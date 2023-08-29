@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Asynchronism</title>
+    <script>
+      console.log("inicio");
+
+      //Code runs only once
+      setTimeout(() => {
+        console.log("Running a setTimeout, this is executed once.")
+      }, 3000);
+      // Code runs repeatedly 
+      setInterval(() => {
+        console.log("Running a setInterval, this code is executed each time defined.")
+      }, 1000);
+
+      setInterval(() => {
+        console.log(new Date().toLocaleTimeString());
+      }, 1000);
+
+      let timer = setInterval(() => {
+        console.log(new Date().toLocaleTimeString());
+      },1000)
+
+      clearInterval(timer);
+      console.log("After clearInterval.")
+    </script> 
+  </head>
+  <body>
+    
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Asynchronism</title>
+    <script>
+      // Blocking Synchronous Code
+      (() => {
+        console.log("Synchronous Code");
+        console.log("Start");
+
+        function two() {
+          console.log("Two");
+        }
+
+        function one() {
+          console.log("one");
+          two();
+          console.log("three");
+        }
+
+        one();
+        console.log("End.");
+      })()
+       console.log("**********************************");
+      //Non Blocking Asynchronous Code
+      (() => {
+        console.log("Async Code");
+        console.log("Start");
+
+        function two() {
+          setTimeout(function() {
+            console.log("two");
+          }, 1000);
+        }
+
+        function one() {
+          setTimeout(function() {
+            console.log("One")
+          }, 0);
+          two();
+          console.log("Three");
+        }
+
+        one();
+        console.log("End");
+      })();
+    </script> 
+  </head>
+  <body>
+    
+  </body>
+</html>
