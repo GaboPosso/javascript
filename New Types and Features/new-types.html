@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=""UTF-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Data types in JS</title>
+  </head>
+  <body>
+    <h1>New Data Types on JS</h1>
+    <script>
+      let id = Symbol("id");
+      let id2 = Symbol("id2");
+
+      const NAME = Symbol("NAME");
+      const GREET= Symbol("Greet");
+      const person = {
+        [NAME]:"Gabo"
+      }
+
+
+      console.log(person);
+
+      person.NAME = "Gabriel Posso";
+
+      console.log(person);
+      console.log(person.NAME);
+      console.log(person[NAME]);
+      
+      person[GREET] = function() {
+        console.log("Hi!");
+      }
+
+      console.log(person);
+      person[GREET]()
+
+    for(let property in person) {
+      console.log(property);
+      console.log(person[property]);
+    }
+
+   console.log(Object.getOwnPropertySymbols(person));
+    </script>
+  </body>
+</html>

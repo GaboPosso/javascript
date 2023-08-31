@@ -12,6 +12,18 @@
       <p>
         Essentially, a promise is a returne object to which you attach callbacks, instead of passing callbacks into a function, imagine a function, <code>createAudioFileAsync()</code>,  which aynchronously generates a sound file given a configuration record and two callback functions, one called if the audio files is succesfully created, and the other called if an error occurs.
       </p>
+
+      <script>
+        function successCallback(result) {
+          console.log(`Audio file ready ar URL: ${result}`);
+        }
+
+        function failureCallback(error) {
+          console.error(`Error generating audio file: ${error}`);
+        }
+
+        createAudioFileAsync(audioSettings, successCallback, failureCallback)
+      </script>
     </div>
     <script></script>
   </body>
