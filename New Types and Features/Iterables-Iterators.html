@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="" UTF-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Data types in JS</title>
+  </head>
+  <body>
+    <h1>New Data Types on JS</h1>
+    <h2>JS Iterable</h2>
+    <div>
+      <p>TA JavaScript iterable is an object that has a Symbol.iterator.
+
+        The Symbol.iterator is a function that returns a next() function.
+        
+        An iterable can be iterated over with the code: for (const x of iterable) { } </p>
+    </div>
+   
+    <script>
+      const iterable = [1, 2, 3, 4, 5];
+      const iterador = iterable[Symbol.iterator]();
+
+      console.log(iterable);
+      console.log(iterador);
+      console.log(iterador.next());
+      console.log(iterador.next());
+      console.log(iterador.next());
+      console.log(iterador.next());
+      console.log(iterador.next());
+      console.log(iterador.next());
+
+      let next = iterador.next();
+
+      while (!next.done) {
+        console.log(next.value);
+        next = iterador.next();
+      }
+
+
+    </script>
+  </body>
+</html>
