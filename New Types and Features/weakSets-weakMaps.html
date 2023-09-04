@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="" UTF-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Data types in JS</title>
+  </head>
+  <body>
+    <h1>New Data Types on JS</h1>
+    <h2>WeakSet</h2>
+    <div>
+      <p>TA WeakSet is a collection of garbage-collectable values, including objects and non-registered symbols. A value in the WeakSet may only occur once. It is unique in the WeakSet's collection.s of a set in insertion order. </p>
+    </div>
+    <h2>WeakMap</h2>
+    <div>
+      <p> A WeakMap is a collection of key/value pairs whose keys must be objects or non-registered symbols, with values of any arbitrary JavaScript type, and which does not create strong references to its keys. </p>
+    </div>
+    <script>
+      const s = new Set([1,2,3,4,5,true,false,{},{}, "hola", "Hi"]);
+      // const ws = new WeakSet([1,2,3,4,5,true,false,{},{}, "hola", "Hi"]);
+      
+      const ws = new WeakSet();
+
+      let value1 = {"Value1": 1};
+      let value2 = {"Value2": 2};
+      let value3 = {"Value1": 1};
+
+      ws.add(value1);
+      ws.add(value2);
+
+      console.log(ws);
+
+      console.log(ws.has(value1));
+      console.log(ws.has(value2));
+      console.log(ws.has(value3));
+
+      ws.delete(value2);
+      console.log(ws);
+      
+
+      ws.add(value2);
+      ws.add(value3);
+      console.log(ws);
+
+
+      // setInterval(() => console.log(ws), 1000);
+
+      setTimeout(() => {
+        value1 = null;
+        value2 = null;
+        value3 = null;
+      }, 5000);
+
+      // const wm = new WeakMap([
+      //   ["nombre", "Yoyo"],
+      //   ["edad", 7],
+      //   ["animal", "gato"],
+      //   [null, "nulo"]
+      // ]);
+
+
+      const wm = new WeakMap();
+      let key1 = {};
+      let key2 = {};
+      let key3 = {};
+
+      wm.set(key1, 1);
+      wm.set(key2, 2);
+      console.log(wm);
+
+      console.log(wm.has(key1));
+      console.log(wm.has(key3));
+
+      console.log(wm.get(key1));
+      console.log(wm.get(key2));
+      console.log(wm.get(key3));
+
+      wm.set(key2, 2);
+      wm.set(key3, 3);
+      console.log(wm);
+
+      // setInterval(() => console.log(wm), 1000);
+
+      setTimeout(() => {
+        key1 = null;
+        key2 = null;
+        kwy3 = null;
+      }, 5000);
+
+      
+      wm.delete(key2);
+      console.log(wm);
+
+      // setInterval(() => console.log(wm), 1000);
+
+
+
+    
+    </script>
+  </body>
+</html>
