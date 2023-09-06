@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="" UTF-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Data types in JS</title>
+  </head>
+  <body>
+    <h1>New Data Types on JS</h1>
+    <h2>JS Generator</h2>
+    <div>
+     <p>The Generator object is returned by a generator function and it conforms to both the iterable protocol and the iterator protocol.</p>
+    </div>
+   
+    <script>
+      function* iterable() {
+        yield "hola"
+        console.log("Hola Console");
+        yield "Hola 2";
+        console.log("We continue with more instructions of our code");
+        yield "Hola 3";
+        yield "Hola 4";
+      }
+
+      let iterator = iterable();
+      // console.log(iterador.next());
+      // console.log(iterador.next());
+      // console.log(iterador.next());
+      // console.log(iterador.next());
+
+      for(let y of iterator) {
+        console.log(y);
+      }
+
+      const arr = [...iterable()];
+      console.log(arr);
+    </script>
+  </body>
+</html>
