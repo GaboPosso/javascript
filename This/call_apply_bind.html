@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="" UTF-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This JS </title>
+  </head>
+  <body>
+    <h1>This JS</h1>
+    <h2>Call, apply and bind</h2>
+    <div>
+     
+    </div>
+   
+    <script>
+      console.log(this);
+      console.log(window);
+      console.log(this===window);
+
+      this.nombre = "Contexto Global",
+      console.log(this.nombre);
+
+
+      function printer() {
+        console.log(this.nombre);
+      }
+
+      printer();
+
+      const obj = {
+        nombre: "Object Context",
+        printer: function() {
+          console.log(this.nombre);
+        }
+      }
+      
+
+      obj.printer();
+
+      const obj2 = {
+        nombre: "Object2 Context",
+        printer
+      }
+
+      const obj3 = {
+        nombre: "Object Context ",
+        printer: () => {
+          console.log(this.nombre);
+        }
+      }
+
+      obj.printer();
+
+
+      function Person (name) {
+        this.name = name;
+
+        //return console.log(this.name);
+
+        return function() {
+          console.log(this.name);
+        }
+      }
+
+      let gabo = new Person("Gabriel");
+      gabo();
+    </script>
+  </body>
+</html>
