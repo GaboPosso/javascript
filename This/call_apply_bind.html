@@ -3,67 +3,46 @@
   <head>
     <meta charset="" UTF-8 />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>This JS </title>
+    <title>This JS</title>
   </head>
   <body>
     <h1>This JS</h1>
     <h2>Call, apply and bind</h2>
-    <div>
-     
-    </div>
-   
+
     <script>
       console.log(this);
-      console.log(window);
-      console.log(this===window);
+      this.place = "Global context";
 
-      this.nombre = "Contexto Global",
-      console.log(this.nombre);
-
-
-      function printer() {
-        console.log(this.nombre);
+      function greet(greet, who) {
+        console.log(`${greet}, ${who} from ${this.place}`);
       }
 
-      printer();
-
+      greet("Hi", "Gabo");
       const obj = {
-        nombre: "Object Context",
-        printer: function() {
-          console.log(this.nombre);
-        }
-      }
-      
+        place: "Object Context",
+      };
 
-      obj.printer();
+      greet.call(obj, "Hello", "Nero");
+      greet.call(null, "Hello", "Nero");
+      greet.call(this, "Hello", "Nero");
 
-      const obj2 = {
-        nombre: "Object2 Context",
-        printer
-      }
+      greet.apply(obj, ["Hi", "Gabo"]);
+      greet.apply(null, ["Hi", "Gabo"]);
+      greet.apply(this, ["Hi", "Gabo"]);
 
-      const obj3 = {
-        nombre: "Object Context ",
-        printer: () => {
-          console.log(this.nombre);
-        }
-      }
+      const person = {
+        name: "Gabo",
+        greet: function () {
+          console.log(`Hi. ${this.name}`);
+        },
+      };
+      person.greet();
 
-      obj.printer();
+      const anotherPerson = {
+        greet: person.greet.bind(person),
+      };
 
-
-      function Person (name) {
-        this.name = name;
-
-        //return console.log(this.name);
-
-        return function() {
-          console.log(this.name);
-        }
-      }
-
-      let gabo = new Person("Gabriel");
-      gabo();
+      anotherPerson.greet();
     </script>
   </body>
 </html>
