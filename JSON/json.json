@@ -1,0 +1,11 @@
+{
+  "string": "Gabo",
+  "number": 30,
+  "boolean": true,
+  "array": ["run", "programming", "cook"],
+  "object": {
+    "ig": "@gabopos",
+    "email": "gabopos@exam.com"
+  },
+  "nulo": null
+}
