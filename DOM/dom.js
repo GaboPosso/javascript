@@ -42,33 +42,33 @@ const removerDobleClick = (e) => {
 };
 $eventoRemover.addEventListener("dblclick", removerDobleClick);
 
-
 const $divEventos = document.querySelectorAll(".eventos-flujo div"),
   $linkEventos = document.querySelector(".eventos-flujo a");
 
 console.log($divEventos);
 
-
 function flujoEventos(e) {
-  console.log(`Hola te saluda ${this}, el click lo orginó ${e.target.className}`);
-  // e.stopPropagation();b 
+  console.log(
+    `Hola te saluda ${this}, el click lo orginó ${e.target.className}`
+  );
+  // e.stopPropagation();b
 }
-//DELEGACIÓN DE EVENTOS
+//DELEGACIÓN DE EVENTOS =====================================
 document.addEventListener("click", (e) => {
   console.log(`click en ${e.target}`);
 
-  if(e.target.matches(".eventos-flujo div")){
+  if (e.target.matches(".eventos-flujo div")) {
     flujoEventos(e);
   }
-  if (e.target.matches(".eventos-flujo a")){
+  if (e.target.matches(".eventos-flujo a")) {
     alert("Hola soy tu amigo y docente digital... Jonathan MirCha");
     e.preventDefault();
   }
 });
 // $divEventos.forEach(div => {
-  
+
 //   div.addEventListener("click", flujoEventos);
-  
+
 // });
 
 // $linkEventos.addEventListener("click", (e) => {
@@ -76,4 +76,40 @@ document.addEventListener("click", (e) => {
 //   e.preventDefault();
 //   e.stopPropagation();
 // } );
-// BOM 
+// ================================BOM ===============================
+window.addEventListener("resize", (e) => {
+  console.clear();
+  console.log("****************Evento Resize************************");
+  console.log(window.innerHeight);
+  console.log(window.innerWidth);
+  console.log(window.outerWidth);
+  console.log(window.outerHeight);
+  
+  console.log(e);
+});
+
+
+window.addEventListener("sxroll", e => {
+  console.clear();
+  console.log("****************Evento Scroll************************");
+  console.log(window.scrollX);
+  console.log(window.scrollY);
+  console.log(e);
+})
+
+window.addEventListener("load", e => {
+  console.clear();
+  console.log("****************Evento Load************************");
+  console.log(window.screenX);
+  console.log(window.screenY);
+  console.log(e);
+})
+
+document.addEventListener("DOMContentLoaded", (e) => {
+  console.clear();
+  console.log("****************DOMContentLoaded************************");
+  console.log(window.screenX);
+  console.log(window.screenY);
+  console.log(e);
+})
+
