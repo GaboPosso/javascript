@@ -50,24 +50,30 @@ console.log($divEventos);
 
 
 function flujoEventos(e) {
-  console.log(`Hola te saluda ${this.className}, el click lo orginó ${e.target.className}`);
-  e.stopPropagation();
+  console.log(`Hola te saluda ${this}, el click lo orginó ${e.target.className}`);
+  // e.stopPropagation();b 
 }
-$divEventos.forEach(div => {
-  //Fase de Burbuja
-  //div.addEventListener("click", flujoEventos);
-  // div.addEventListener("click", flujoEventos, false);
-  // Fase de Captura
-  div.addEventListener("click", flujoEventos, true);
-  // div.addEventListener("click", flujoEventos, {
-  //   capture: false,
-  //   once: true,
-  // });
+//DELEGACIÓN DE EVENTOS
+document.addEventListener("click", (e) => {
+  console.log(`click en ${e.target}`);
+
+  if(e.target.matches(".eventos-flujo div")){
+    flujoEventos(e);
+  }
+  if (e.target.matches(".eventos-flujo a")){
+    alert("Hola soy tu amigo y docente digital... Jonathan MirCha");
+    e.preventDefault();
+  }
 });
+// $divEventos.forEach(div => {
+  
+//   div.addEventListener("click", flujoEventos);
+  
+// });
 
-$linkEventos.addEventListener("click", (e) => {
-  alert("Hola soy tu amigo y docente digital... Jonathan MirCha");
-  e.preventDefault();
-  e.stopPropagation();
-} );
-
+// $linkEventos.addEventListener("click", (e) => {
+//   alert("Hola soy tu amigo y docente digital... Jonathan MirCha");
+//   e.preventDefault();
+//   e.stopPropagation();
+// } );
+// BOM 
