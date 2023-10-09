@@ -4,7 +4,7 @@
    --main-font: sans-serif;
    --font-size: 16ps;
    --main-color: #f7df1e;
-   --second-color: rgba(247,222,30,0.85);
+   --second-color: #222;
    --main-modal-color: rgba(247, 222, 30, 0.85);
    --second-modal-color: rgba(34, 34, 34, 0.85);
    --container-width: 1200px;
@@ -12,7 +12,7 @@
 
 html {
   box-sizing: border-box;
-  font-family: var(--main-color);
+  font-family: var(--main-font);
   font-size: var(--font-size);
   scroll-behavior: smooth;
 }
@@ -67,11 +67,22 @@ img {
   right: 0;
   width: 100%;
   background-color: var(--second-modal-color);
-  transform: translate(0, -100);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.5s ease;
+  
+  /* De Arriba */
+  /* transform: translate(0, -100%); */
+  /* De Abajo */
+  /* transform: translate(0, 100%); */
+  /* De la Derecha */
+  /* transform: translate(100%, 0); */
+  /* De Arriba */
+  /* transform: translate(-100%, 0); */
 }
 
 .panel.is-active{
-  transform: translate(0, 0);
+  /* transform: translate(0, 0); */
+  opacity: 1;
 }
 .panel-btn {
   position: fixed;
@@ -111,4 +122,4 @@ img {
   font-weight: bold;
   color: var(--second-color);
   background-color: var(--main-modal-color);
-}
+} 
