@@ -69,7 +69,7 @@ img {
   background-color: var(--second-modal-color);
   opacity: 0;
   transition: transform 0.3s ease, opacity 0.5s ease;
-  
+  visibility: hidden;
   /* De Arriba */
   /* transform: translate(0, -100%); */
   /* De Abajo */
@@ -83,6 +83,7 @@ img {
 .panel.is-active{
   /* transform: translate(0, 0); */
   opacity: 1;
+  visibility: visible;
 }
 .panel-btn {
   position: fixed;
