@@ -4,6 +4,8 @@ import { shortcuts } from "./dom/teclado.js";
 import { moveBall } from "./dom/teclado.js";
 import { countdown } from "./dom/countdown.js";
 import scrollTopButton from "./dom/boton_scroll.js";
+import darkTheme from "./dom/dark_theme.js";
+
 const d = document;
 d.addEventListener("DOMContentLoaded", (e) => {
   hamburguerMenu(".panel-btn", ".panel", ".menu a");
@@ -14,7 +16,8 @@ d.addEventListener("DOMContentLoaded", (e) => {
     "Nov 06, 2023 20:14",
     "Happy Birthday, you CodeHead 🤓!!"
   );
-  scrollTopButton('.scroll-top-btn')
+  scrollTopButton(".scroll-top-btn");
+  darkTheme(".dark-theme-btn", "dark-mode");
 });
 
 d.addEventListener("keydown", (e) => {
