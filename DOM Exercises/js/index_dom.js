@@ -17,10 +17,11 @@ d.addEventListener("DOMContentLoaded", (e) => {
     "Happy Birthday, you CodeHead 🤓!!"
   );
   scrollTopButton(".scroll-top-btn");
-  darkTheme(".dark-theme-btn", "dark-mode");
 });
 
 d.addEventListener("keydown", (e) => {
   shortcuts(e);
   moveBall(e, ".ball", ".stage");
 });
+
+darkTheme(".dark-theme-btn", "dark-mode");
