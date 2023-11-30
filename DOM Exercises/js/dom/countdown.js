@@ -17,12 +17,12 @@ export function countdown(id, limitDate, message) {
       Math.floor((limitTime % (1000 * 60)) / (1000))).slice(-2);
 
     $countdown.innerHTML = `<h3>${days} days ${hours} hours ${minutes} minutes ${seconds} seconds</h3>`;
-    console.log(countDownDate, now, limitTime);
+    // console.log(countDownDate, now, limitTime);
 
     if(limitTime < 0) {
       clearInterval(countdownTempo);
       $countdown.innerHTML = `<h3>${message}</h3>`;
-    console.log(countDownDate, now, limitTime);
+    // console.log(countDownDate, now, limitTime);
     }
   }, 1000);
 
