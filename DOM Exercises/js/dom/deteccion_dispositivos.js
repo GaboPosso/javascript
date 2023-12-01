@@ -79,6 +79,6 @@ export default function userDeviceInfo(id) {
     window.location.href = "https://facebook.com";
   }
   if (isMobile.ios()){
-    window.location.href = "https://x.com";
+    window.location.href = "https://twitter.com";
   }
 }
