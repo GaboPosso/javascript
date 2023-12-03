@@ -11,6 +11,7 @@ import userDeviceInfo from "./dom/deteccion_dispositivos.js";
 import networkStatus from "./dom/deteccion_red.js";
 import webcam from "./dom/deteccion_webcam.js";
 import getGeolocation from "./dom/geolocalizacion.js";
+import searchFilter from "./dom/filtro_busqueda.js";
 
 const d = document;
 d.addEventListener("DOMContentLoaded", (e) => {
@@ -39,6 +40,7 @@ d.addEventListener("DOMContentLoaded", (e) => {
   userDeviceInfo("user-device");
   webcam("webcam");
   getGeolocation("geolocation");
+  searchFilter(".card-filter",".card")
 });
 
 d.addEventListener("keydown", (e) => {
