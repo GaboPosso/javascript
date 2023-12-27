@@ -18,13 +18,13 @@ export default function scrollSpy() {
           "active"
         );
       }
-    });
+    }); 
   };
 
   const observer = new IntersectionObserver(cb, {
     // root,
     // rootMargin: "-250px",
-    treshold: [0.5, 0.75],
+    threshold: [0.5, 0.75],
 
   });
   // console.log("obseerver:", observer);
