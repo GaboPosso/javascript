@@ -227,7 +227,45 @@
         <h2>Validaciones de formulario</h2>
         <form class="contact-form">
           <legend>Envianos tus comentarios</legend>
-          <input type="text" name="name" placeholder="Escribe tu nombre">
+          <input
+            type="text"
+            name="name"
+            placeholder="Escribe tu nombre"
+            title="El nombre acepta letras y expacios en blanco"
+            pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Escribe tu Email"
+            title="Email Inválido"
+            pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+            required
+          />
+          <input
+            type="text"
+            name="subject"
+            placeholder="Asunto a tratar"
+            title="El asunto es requerido"
+            required
+          />
+          <textarea
+            name="comments"
+            placeholder="Escribe tus comentarios"
+            cols="50"
+            rows="5"
+            data-pattern="^.{1,255}$"
+            title="Tu comentario no debe exceder los 255 caracteres"
+            required
+          ></textarea>
+          <div class="contact-form-loader none">
+            <img src="assets/ball-triangle.svg" alt="Cargando" />
+          </div>
+          <div class="contact-form-response none">
+            <p>Los datos han sido enviados</p>
+          </div>
+          <input type="submit" value="Enviar" />
         </form>
       </section>
       <section id="section15" class="section" data-scroll-spy>

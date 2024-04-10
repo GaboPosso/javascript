@@ -1,13 +1,13 @@
 /* ************** Reset CSS ****************** */
 
 :root {
-   --main-font: sans-serif;
-   --font-size: 16ps;
-   --main-color: #f7df1e;
-   --second-color: #222;
-   --main-modal-color: rgba(247, 222, 30, 0.85);
-   --second-modal-color: rgba(34, 34, 34, 0.85);
-   --container-width: 1200px;
+  --main-font: sans-serif;
+  --font-size: 16ps;
+  --main-color: #f7df1e;
+  --second-color: #222;
+  --main-modal-color: rgba(247, 222, 30, 0.85);
+  --second-modal-color: rgba(34, 34, 34, 0.85);
+  --container-width: 1200px;
 }
 
 html {
@@ -19,11 +19,11 @@ html {
 
 *,
 *:before,
-*::after{
+*::after {
   box-sizing: inherit;
 }
 
-body{
+body {
   margin: 0;
   overflow-x: hidden;
 }
@@ -39,7 +39,7 @@ img {
   z-index: 997;
   top: 0;
   padding: 1rem;
-  background-color: var( --main-color);
+  background-color: var(--main-color);
   color: var(--second-modal-color);
 }
 
@@ -81,7 +81,7 @@ img {
   /* transform: translate(-100%, 0); */
 }
 
-.panel.is-active{
+.panel.is-active {
   /* transform: translate(0, 0); */
   opacity: 1;
   visibility: visible;
@@ -95,7 +95,7 @@ img {
   height: 4rem;
   border-radius: 50%;
   padding: 0;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--main-color);
@@ -142,7 +142,6 @@ img {
   background-color: var(--main-color);
 }
 
-
 /* ******  ScrollTopButton ***** */
 .scroll-top-btn {
   position: fixed;
@@ -171,7 +170,6 @@ img {
   visibility: hidden;
   opacity: 0;
 }
-
 
 /* ******  DarkThemeButton ***** */
 
@@ -222,14 +220,14 @@ img {
 }
 /* ******* Search filter ********* */
 
-.cards { 
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.card  {
+.card {
   background-color: var(--second-color);
-  color:var(--main-color);
+  color: var(--main-color);
   transition: all 0.3s ease-out;
 }
 
@@ -269,7 +267,7 @@ img {
   top: 0;
   left: 0;
   height: 100%;
-  width: 100%;  
+  width: 100%;
   opacity: 0;
   visibility: hidden;
   transition: opacity 1s ease;
@@ -320,7 +318,7 @@ img {
     display: grid;
     grid-template-columns: 80% 20%;
     grid-template-rows: 4rem auto;
-    grid-template-areas: 
+    grid-template-areas:
       "header header"
       "main  panel";
   }
@@ -359,12 +357,88 @@ img {
     background-color: var(--main-color);
   }
 
-  .scroll-top-btn{
+  .scroll-top-btn {
     right: initial;
     left: calc(4.25rem + 1vw);
   }
 
   section {
     border: thin solid red;
+  }
+}
+
+/* *********** ContactForm Validations ************ */
+
+.contact-form {
+  --form-ok-color: #4caf50;
+  --form-error-color: #f44336;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+.contact-form > * {
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 100%;
+}
+.contact-form textarea {
+  resize: none;
+}
+.contact-form legend,
+.contact-form-response {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+.contact-form input,
+.contact-form textarea {
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+.contact-form input[type="submit"] {
+  width: 50%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.contact-form *::placeholder {
+  color:var #000;
+}
+
+.contact-form [required]:valid {
+  border: thin solid var(--form-ok-color);
+}
+
+.contact-form [required]:invalid {
+  border: thin solid var(--form-error-color);
+}
+
+.contact-form-error {
+  margin-top: -1rem;
+  font-size: 80%;
+  background-color: var(--form-error-color);
+  color:#fff;
+  transition: all 800ms ease;
+}
+
+.contact-form-error.is-active {
+  display: block;
+  animation: show-message 1s 1 normal 0s ease-out both;
+}
+
+.none {
+  display: none;
+}
+
+@keyframes show-message {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100%{
+    visibility: visible;
+    opacity: 1;
   }
 }
