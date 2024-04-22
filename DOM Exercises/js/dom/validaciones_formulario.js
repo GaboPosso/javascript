@@ -31,7 +31,7 @@ export default function contactFormValidations() {
     }
   });
   d.addEventListener("submit", (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     alert("Enviando Formulario");
 
     const $loader = d.querySelector(".contact-form-loader"),
