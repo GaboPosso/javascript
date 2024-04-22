@@ -38,7 +38,7 @@
         <a href="#section12" data-scroll-spy>Responsive Slider</a>
         <a href="#section13" data-scroll-spy>Video Inteligente</a>
         <a href="#section14" data-scroll-spy>Validaciones de Formulario</a>
-        <a href="#section15" data-scroll-spy>Filtros de búsqueda</a>
+        <a href="#section15" data-scroll-spy>Narrador</a>
       </nav>
     </aside>
 
@@ -225,7 +225,11 @@
       </section>
       <section id="section14" class="section" data-scroll-spy>
         <h2>Validaciones de formulario</h2>
-        <form class="contact-form" action="https://formsubmit.co/gabopos@gmail.com" method="POST">
+        <form
+          class="contact-form"
+          action="https://formsubmit.co/gabopos@gmail.com"
+          method="POST"
+        >
           <legend>Envianos tus comentarios</legend>
           <input
             type="text"
@@ -269,7 +273,19 @@
         </form>
       </section>
       <section id="section15" class="section" data-scroll-spy>
-        <h2>Section 5</h2>
+        <h2>Narrador</h2>
+        <select id="speech-select">
+          <option value="">--- Elige una voz ---</option>
+        </select>
+        <br /><br />
+        <textarea
+          id="speech-text"
+          cols="50"
+          rows="5"
+          placeholder="Ingresa texto para leerlo..."
+        ></textarea>
+        <br /><br />
+        <button id="speech-btn">Leer Texto</button>
       </section>
     </main>
     <button class="scroll-top-btn">&#11014;</button>

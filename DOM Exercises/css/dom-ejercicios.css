@@ -362,9 +362,9 @@ img {
     left: calc(4.25rem + 1vw);
   }
 
-  section {
+  /* section {
     border: thin solid red;
-  }
+  } */
 }
 
 /* *********** ContactForm Validations ************ */

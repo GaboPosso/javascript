@@ -27,10 +27,10 @@ export function moveBall(e, ball, stage) {
     $stage = d.querySelector(stage),
     limitsBall = $ball.getBoundingClientRect(),
     limitsStage = $stage.getBoundingClientRect();
-  console.log(e.key);
-  console.log(e.keyCode);
-  console.log(limitsBall);
-  console.log(limitsStage);
+  // console.log(e.key);
+  // console.log(e.keyCode);
+  // console.log(limitsBall);
+  // console.log(limitsStage);
 
   // const move = (direction) => {
   // };
