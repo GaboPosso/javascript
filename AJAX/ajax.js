@@ -57,20 +57,13 @@
   const $fetchAsync = document.getElementById("fetch-async"),
     $fragment = document.createDocumentFragment();
 
-  async function getData() {   
+  async function getData() {
     try {
       let res = await fetch("https://jsonplaceholder.typicode.com/users"),
-      json = await res.json();
+        json = await res.json();
 
-    // if (!res.ok) throw new Error("An Error has occurred in Data Request");
-    if (!res.ok) throw { status: res.status, statusText: res.statusText };
-      json.forEach((el) => {
-        const $li = document.createElement("li");
-        $li.innerHTML = `${el.name} -- ${el.email} -- ${el.phone}`;
-        $fragment.appendChild($li);
-      });
-      $fetchAsync.appendChild($fragment);
-      
+      // if (!res.ok) throw new Error("An Error has occurred in Data Request");
+      if (!res.ok) throw { status: res.status, statusText: res.statusText };
       json.forEach((el) => {
         const $li = document.createElement("li");
         $li.innerHTML = `${el.name} -- ${el.email} -- ${el.phone}`;
@@ -78,11 +71,10 @@
       });
       $fetchAsync.appendChild($fragment);
     } catch (err) {
-      
       let message = err.statusText || "An error has ocurred.";
       $fetchAsync.innerHTML = `Error ${err.status}: ${message}`;
     } finally {
-      console.log("NVM")
+      console.log("NVM");
     }
   }
   getData();
