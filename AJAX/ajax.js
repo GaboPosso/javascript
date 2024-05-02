@@ -49,7 +49,7 @@
       $fetch.innerHTML = `Error ${err.status}: ${message}`;
     })
     .finally(() => {
-      console.log("NVM");
+      // console.log("NVM");
     });
 })();
 
@@ -74,8 +74,61 @@
       let message = err.statusText || "An error has ocurred.";
       $fetchAsync.innerHTML = `Error ${err.status}: ${message}`;
     } finally {
-      console.log("NVM");
+      // console.log("NVM");
     }
   }
   getData();
 })();
+
+(() => {
+  const $axios = document.getElementById("axios"),
+    $fragment = document.createDocumentFragment();
+
+  axios
+    .get("https://jsonplaceholder.typicode.com/users")
+    .then((res) => {
+      let json = res.data;
+
+      // console.log(res);
+      json.forEach((el) => {
+        const $li = document.createElement("li");
+        $li.innerHTML = `${el.name} -- ${el.email} -- ${el.phone}`;
+        $fragment.appendChild($li);
+      });
+
+      $axios.appendChild($fragment);
+    })
+    .catch((err) => {
+      // console.log(err.response);
+      let message = err.statusText || "An error has ocurred.";
+      $axios.innerHTML = `Error ${err.response.status}: ${message}`;
+    })
+    .finally(() => {
+      // console.log("NVM");
+    });
+})();
+
+() => {
+  const $fetchAsync = document.getElementById("fetch-async"),
+    $fragment = document.createDocumentFragment();
+
+  async function getData() {
+    try {
+      let res = await fetch("https://jsonplaceholder.typicode.com/users"),
+        json = await res.json();
+
+        json.forEach((el) => {
+        const $li = document.createElement("li");
+        $li.innerHTML = `${el.name} -- ${el.email} -- ${el.phone}`;
+        $fragment.appendChild($li);
+      });
+      $fetchAsync.appendChild($fragment);
+    } catch {
+    } finally {
+      console.log("NVM");
+    }
+  }
+  
+
+  getData();
+};
