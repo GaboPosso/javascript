@@ -108,27 +108,27 @@
     });
 })();
 
-() => {
-  const $fetchAsync = document.getElementById("fetch-async"),
+(() => {
+  const $axiosAsync = document.getElementById("axios-async"),
     $fragment = document.createDocumentFragment();
-
   async function getData() {
     try {
-      let res = await fetch("https://jsonplaceholder.typicode.com/users"),
-        json = await res.json();
+      let res = await axios.get("https://jsonplaceholder.typicode.com/users"),
+        json = await res.data;
 
-        json.forEach((el) => {
+      json.forEach((el) => {
         const $li = document.createElement("li");
         $li.innerHTML = `${el.name} -- ${el.email} -- ${el.phone}`;
         $fragment.appendChild($li);
       });
-      $fetchAsync.appendChild($fragment);
-    } catch {
+      $axiosAsync.appendChild($fragment);
+    } catch (err) {
+      let message = err.response.statusText || "An error has ocurred.";
+      $axiosAsync.innerHTML = `Error ${err.response.status}: ${message}`;
     } finally {
       console.log("NVM");
     }
   }
-  
 
   getData();
-};
+})();
