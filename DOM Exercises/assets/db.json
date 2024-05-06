@@ -1,0 +1,29 @@
+{
+  "santos":[
+    {
+      "id": 1,
+      "nombre": "Seiya",
+      "constelacion":"Pegaso"
+    },
+    {
+      "id": 1,
+      "nombre": "Shiryu",
+      "constelacion":"Dragón"
+    },
+    {
+      "id": 3,
+      "nombre": "Hyoga",
+      "constelacion":"Cisne"
+    },
+    {
+      "id": 4,
+      "nombre": "Shun",
+      "constelacion":"Andrómeda"
+    },
+    {
+      "id": 5,
+      "nombre": "Ikki",
+      "constelacion":"Fénix"
+    }
+  ]
+}
