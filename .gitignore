@@ -1,0 +1,5 @@
+#Ignore the registry files
+*.log
+
+#ignore node_modules
+node_modules/
