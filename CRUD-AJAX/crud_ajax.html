@@ -52,6 +52,17 @@
         $title = d.querySelector("crud-title"),
         $template = d.getElementById("crud-template").content,
         $fragment = d.createDocumentFragment();
+
+        const ajax = (options) => {
+          let {url, method, success, error, data} = options;
+          const xhr = new XMLHttpRequest();
+          
+          xhr.addEventListener("readystatechange", e => {});
+
+          xhr.open(method || "GET", url);
+          
+
+        }
     </script>
   </body>
 </html>
