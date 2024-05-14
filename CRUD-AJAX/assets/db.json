@@ -24,6 +24,26 @@
       "id": "5",
       "nombre": "Ikki",
       "constelacion": "Fénix"
+    },
+    {
+      "id": "8e66",
+      "nombre": "Mú",
+      "constelacion": "Aries"
+    },
+    {
+      "id": "89a0",
+      "nombre": "Aldebarán",
+      "constelacion": "Tauro"
+    },
+    {
+      "nombre": "Saga",
+      "constelacion": "Géminis",
+      "id": "6ff2"
+    },
+    {
+      "id": "7f81",
+      "nombre": "Máscara de Muerte",
+      "constelacion": "Cáncer"
     }
   ],
   "dioses": [
