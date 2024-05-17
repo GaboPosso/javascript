@@ -85,6 +85,31 @@
         }
       };
       d.addEventListener("DOMContentLoaded", getAll);
+
+      d.addEventListener("submit", e => {
+        if(e.target === $form){
+          e.preventDefault();
+
+          if(!e.target.id.value) {
+            //Create - POST
+            try {
+              let options = {
+                method: "POST",
+                headers: {
+                  "Content-type": "application/json; charset=utf-8"
+                },
+                  
+              }
+              let res = await fetch("http://localhost:5555/santos", options),
+              json = await res.json();
+            } catch (error) {
+
+            }
+          }
+        } else {
+            //Update - PUT
+        }
+      })
     </script>
   </body>
 </html>
