@@ -44,6 +44,21 @@
       "id": "7f81",
       "nombre": "Máscara de Muerte",
       "constelacion": "Cáncer"
+    },
+    {
+      "id": "0637",
+      "nombre": {},
+      "constelacion": {}
+    },
+    {
+      "id": "ad94",
+      "nombre": "Aioria",
+      "constelacion": "Leo"
+    },
+    {
+      "id": "fcc8",
+      "nombre": "Asmita",
+      "constelacion": "Virgo"
     }
   ],
   "dioses": [
