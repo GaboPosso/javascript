@@ -127,12 +127,14 @@
                 "Content-type": "application/json; charset=utf-8",
               },
               body: JSON.stringify({
-                nombre: e.target.name.value,
-                constelacion: e.target.constellation.value,
+                nombre: e.target.nombre.value,
+                constelacion: e.target.constelacion.value,
               }),
             };
             let res = await fetch(
-                `http://localhost:5555/santos/${e.target.id.value}`, options),
+                `http://localhost:5555/santos/${e.target.id.value}`,
+                options
+              ),
               json = await res.json();
 
             if (!res.ok)
@@ -164,30 +166,28 @@
           if (isDelete) {
             //Delete - DELETE
             try {
-            let options = {
-              method: "DELETE",
-              headers: {
-                "Content-type": "application/json; charset=utf-8",
-              },
-              body: JSON.stringify({
-                nombre: e.target.name.value,
-                constelacion: e.target.constellation.value,
-              }),
-            };
-            let res = await fetch(
-                `http://localhost:5555/santos/${e.target.datadset.id.value}`, options),
-              json = await res.json();
+              let options = {
+                method: "DELETE",
+                headers: {
+                  "Content-type": "application/json; charset=utf-8",
+                }
+              };
+              let res = await fetch(
+                  `http://localhost:5555/santos/${e.target.dataset.id}`,
+                  options
+                ),
+                json = await res.json();
 
-            if (!res.ok)
-              throw { status: res.status, statusText: res.statusText };
-            location.reload();
-          } catch (error) {
-            let message = err.statusText || "An error has occured.";
-            $form.insertAdjacentHTML(
-              "afterend",
-              `<p><b>Error: ${err.status}: ${message}</b></p>`
-            );
-          }
+              if (!res.ok)
+                throw { status: res.status, statusText: res.statusText };
+              location.reload();
+            } catch (err) {
+              let message = err.statusText || "An error has occured.";
+              $form.insertAdjacentHTML(
+                "afterend",
+                `<p><b>Error: ${err.status}: ${message}</b></p>`
+              );
+            }
           }
         }
       });
