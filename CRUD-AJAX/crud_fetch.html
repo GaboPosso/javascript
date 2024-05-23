@@ -107,9 +107,10 @@
               };
               let res = await fetch("http://localhost:5555/santos", options),
                 json = await res.json();
-              location.reload();
+
               if (!res.ok)
                 throw { status: res.status, statusText: res.statusText };
+              location.reload();
             } catch (error) {
               let message = err.statusText || "An error has occured.";
               $form.insertAdjacentHTML(
@@ -127,8 +128,8 @@
                 "Content-type": "application/json; charset=utf-8",
               },
               body: JSON.stringify({
-                nombre: e.target.nombre.value,
-                constelacion: e.target.constelacion.value,
+                nombre: e.target.name.value,
+                constelacion: e.target.constellation.value,
               }),
             };
             let res = await fetch(
@@ -170,7 +171,7 @@
                 method: "DELETE",
                 headers: {
                   "Content-type": "application/json; charset=utf-8",
-                }
+                },
               };
               let res = await fetch(
                   `http://localhost:5555/santos/${e.target.dataset.id}`,
