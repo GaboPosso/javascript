@@ -59,7 +59,7 @@
 
       const getAll = async () => {
         try {
-          let res = await axios("http://localhost:5555/santos"),
+          let res = await axios.get("http://localhost:5555/santos"),
             json = await res.data;
 
           json.forEach((el) => {
@@ -87,11 +87,39 @@
       };
       d.addEventListener("DOMContentLoaded", getAll);
 
-      d.addEventListener("submit", async e => {
-        if(e.target === $form) {
-           
+      d.addEventListener("submit", async (e) => {
+        if (e.target === $form) {
+          e.preventDefault();
+
+          if (e.target.id.value) {
+            //Create - POST
+            try {
+              let options = {
+                  method: "POST",
+                  headers: {
+                    "Content-type": "application/json; charset=utf-8",
+                  },
+                  data: JSON.stringify({
+                    nombre: e.target.name.value,
+                    constelacion: e.target.constellation.value,
+                  }),
+                },
+                res = await axios("http://localhost:5555/santos", options),
+                json = await res.data;
+
+              localStorage.reload();
+            } catch (err) {
+              let message = err.statusText || "An error has occured.";
+              $form.insertAdjacentHTML(
+                "afterend",
+                `<p><b>Error: ${err.status}: ${message}</b></p>`
+              );
+            }
+          } else {
+            //Update - PUT
+          }
         }
-      })
+      });
     </script>
   </body>
 </html>
