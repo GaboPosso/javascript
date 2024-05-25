@@ -54,6 +54,16 @@
       "id": "fcc8",
       "nombre": "Asmita",
       "constelacion": "Virgo"
+    },
+    {
+      "nombre": "Dokho",
+      "constelacion": "Libras",
+      "id": "e738"
+    },
+    {
+      "id": "cf30",
+      "nombre": "Milo",
+      "constelacion": "Escorpio"
     }
   ],
   "dioses": [

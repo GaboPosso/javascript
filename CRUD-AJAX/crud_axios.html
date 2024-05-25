@@ -53,7 +53,7 @@
       const d = document,
         $table = d.querySelector(".crud-table"),
         $form = d.querySelector(".crud-form"),
-        $title = d.querySelector("crud-title"),
+        $title = d.querySelector(".crud-title"),
         $template = d.getElementById("crud-template").content,
         $fragment = d.createDocumentFragment();
 
@@ -91,7 +91,7 @@
         if (e.target === $form) {
           e.preventDefault();
 
-          if (e.target.id.value) {
+          if (!e.target.id.value) {
             //Create - POST
             try {
               let options = {
@@ -107,7 +107,7 @@
                 res = await axios("http://localhost:5555/santos", options),
                 json = await res.data;
 
-              localStorage.reload();
+              location.reload();
             } catch (err) {
               let message = err.statusText || "An error has occured.";
               $form.insertAdjacentHTML(
@@ -116,7 +116,70 @@
               );
             }
           } else {
-            //Update - PUT
+            //Update - PUTs
+            try {
+              let options = {
+                method: "PUT",
+                headers: {
+                  "Content-type": "application/json; charset=utf-8",
+                },
+                data: JSON.stringify({
+                  nombre: e.target.name.value,
+                  constelacion: e.target.constellation.value,
+                }),
+              };
+              let res = await axios(
+                  `http://localhost:5555/santos/${e.target.id.value}`,
+                  options
+                ),
+                json = await res.data;
+
+              if (!res.ok)
+                throw { status: res.status, statusText: res.statusText };
+              location.reload();
+            } catch (error) {
+              let message = err.statusText || "An error has occured.";
+              $form.insertAdjacentHTML(
+                "afterend",
+                `<p><b>Error: ${err.status}: ${message}</b></p>`
+              );
+            }
+          }
+        }
+      });
+
+      d.addEventListener("click", async (e) => {
+        if (e.target.matches(".edit")) {
+          $title.textContent = "Edit Saint";
+          $form.name.value = e.target.dataset.name;
+          $form.constellation.value = e.target.dataset.constellation;
+          $form.id.value = e.target.dataset.id;
+        }
+
+        if (e.target.matches(".delete")) {
+          //Delete-DELETE
+          let isDelete = confirm(
+            `Are you sure you want to delete id ${e.target.dataset.id}?`
+          );
+          if (isDelete) {
+            try {
+              let options = {
+                method: "DELETE",
+                headers: {
+                  "Content-type": "application/json; charset=utf-8",
+                },
+              };
+              let res = await axios(
+                  `http://localhost:5555/santos/${e.target.dataset.id}`,
+                  options
+                ),
+                json = await res.data;
+
+              location.reload();
+            } catch (err) {
+              let message = err.statusText || "An error has ocurred.";
+              alert(`Error ${err.status}: ${message}`);
+            }
           }
         }
       });
